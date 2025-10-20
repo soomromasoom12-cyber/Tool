@@ -768,13 +768,16 @@
             document.getElementById('mainNav').classList.toggle('active');
         });
         
-        // Simple tool card click handler
-        document.querySelectorAll('.tool-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const toolName = this.querySelector('h3').textContent;
-                alert(`You selected: ${toolName}. This would navigate to the tool page in a real implementation.`);
-            });
-        });
+    // Tool card click handler - navigates to tool pages
+document.querySelectorAll('.tool-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const toolName = this.querySelector('h3').textContent;
+        const toolSlug = toolName.toLowerCase().replace(/s+/g, '-');
+        
+        // Navigate to the tool page
+        window.location.href = `/tools/${toolSlug}.html`;
+    });
+});
     </script>
 </body>
 </html>
